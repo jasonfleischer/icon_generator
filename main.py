@@ -13,9 +13,9 @@ def main():
 
 	res_directory = "res/svg"
 	for filename in os.listdir(res_directory):
-	    f = os.path.join(res_directory, filename)
-	    if os.path.isfile(f) and filename.endswith('.svg'):
-	        generateImages(f, Path(f).stem, output_dir)
+		f = os.path.join(res_directory, filename)
+		if os.path.isfile(f) and filename.endswith('.svg'):
+			generateImages(f, Path(f).stem, output_dir)
 
 def generateImages(path, filename, output_dir):
 	output_dir = output_dir+"/"+filename
@@ -45,17 +45,17 @@ def convertSVGToImg(path, size):
 	return img
 
 def addCornersToImage(img, rad):
-    circle = Image.new('L', (rad * 2, rad * 2), 0)
-    draw = ImageDraw.Draw(circle)
-    draw.ellipse((0, 0, rad * 2, rad * 2), fill=255)
-    alpha = Image.new('L', img.size, 255)
-    w, h = img.size
-    alpha.paste(circle.crop((0, 0, rad, rad)), (0, 0))
-    alpha.paste(circle.crop((0, rad, rad, rad * 2)), (0, h - rad))
-    alpha.paste(circle.crop((rad, 0, rad * 2, rad)), (w - rad, 0))
-    alpha.paste(circle.crop((rad, rad, rad * 2, rad * 2)), (w - rad, h - rad))
-    img.putalpha(alpha)
-    return img
+	circle = Image.new('L', (rad * 2, rad * 2), 0)
+	draw = ImageDraw.Draw(circle)
+	draw.ellipse((0, 0, rad * 2, rad * 2), fill=255)
+	alpha = Image.new('L', img.size, 255)
+	w, h = img.size
+	alpha.paste(circle.crop((0, 0, rad, rad)), (0, 0))
+	alpha.paste(circle.crop((0, rad, rad, rad * 2)), (0, h - rad))
+	alpha.paste(circle.crop((rad, 0, rad * 2, rad)), (w - rad, 0))
+	alpha.paste(circle.crop((rad, rad, rad * 2, rad * 2)), (w - rad, h - rad))
+	img.putalpha(alpha)
+	return img
 
 def changeToWorkingDirectory():
 	abspath = os.path.abspath(__file__)
