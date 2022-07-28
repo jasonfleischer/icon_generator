@@ -1,2 +1,2 @@
 # Icon Generator
-Script for creating icons
+Script for creating website and app icons of different sizes
