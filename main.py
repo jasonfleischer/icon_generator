@@ -23,7 +23,7 @@ def generateImages(path, filename, output_dir):
 		shutil.rmtree(output_dir)
 	os.mkdir(output_dir)
 
-	sizes = [152, 180, 192, 512]
+	sizes = [152, 167, 180, 192, 512]
 	for size in sizes:
 		generateImage(path, filename, size, output_dir)
 	print("	"+filename)
