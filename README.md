@@ -1,2 +1,2 @@
-# icon_generator
+# Icon Generator
 Script for creating icons
